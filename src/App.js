@@ -1,23 +1,44 @@
-import logo from './logo.svg';
-import './App.css';
+import { Routes, Route } from "react-router-dom";
+import Exchanges from "./components/Exchanges";
+import Coins from "./components/Coins";
+import CoinDetails from "./components/CoinDetails";
+import Header from "./components/Header";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="app">
+      <Routes>
+        <Route
+          path="/"
+          element={
+            <>
+              {/* <Header /> */}
+              {/* No need bcz its Home only but stil... :) */}
+              <Exchanges />
+            </>
+          }
+        />
+        {/* <Route/> for Login and signup */}
+        <Route
+          path="/coins"
+          element={
+            <>
+              <Header />
+              <></>
+              <Coins />
+            </>
+          }
+        />
+        <Route
+          path="/coins/:id"
+          element={
+            <>
+              <Header />
+              <CoinDetails />
+            </>
+          }
+        />
+      </Routes>
     </div>
   );
 }
